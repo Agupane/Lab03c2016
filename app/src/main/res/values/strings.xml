@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">WorkFromHome</string>
+    <string name="title_activity_activity_oferta">ActivityOferta</string>
+    <string name="buttonCrearOferta">CREAR UNA OFERTA</string>
+    <string name="tvIngreseOferta">Ingrese oferta</string>
+    <string name="buttonGuardar">GUARDAR</string>
+    <string name="etIngresarOferta_default">Hacerme los laboratorios de DAM</string>
+    <string name="tvRolTrabajo_default">Desarrollador</string>
+    <string name="tvNombreEmpresa_default">Ecommerce Uah</string>
+    <string name="tvHoras">Horas: </string>
+    <string name="tvHoras_cantidad">10</string>
+    <string name="tvIngresoPorHora"> Max $/Hora: </string>
+    <string name="tvIngresoPorHora_cantPlata">2.63</string>
+    <string name="tvFechaFin">Fecha Fin: </string>
+    <string name="tvFecha">2016-08-28 </string>
+    <string name="checkBoxEnIngles">En Ingles</string>
+</resources>
