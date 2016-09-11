@@ -1,4 +1,5 @@
 <resources>
+    <!-- Strings aplicacion principal -->
     <string name="app_name">WorkFromHome</string>
     <string name="title_activity_activity_oferta">ActivityOferta</string>
     <string name="buttonCrearOferta">CREAR UNA OFERTA</string>
@@ -14,4 +15,11 @@
     <string name="tvFechaFin">Fecha Fin: </string>
     <string name="tvFecha">2016-08-28 </string>
     <string name="checkBoxEnIngles">En Ingles</string>
+    <!-- Strings aplicacion principal -->
+    
+    <!--Strings Menu Contextual -->
+        <string name="menu_tvAcciones">Acciones</string>
+        <string name="menu_tvPostularse">Postularse a esta oferta</string>
+        <string name="menu_tvCompartirOferta">Compartir esta oferta</string>
+    <!--Strings Menu Contextual -->
 </resources>

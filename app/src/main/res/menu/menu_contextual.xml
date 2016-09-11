@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="10dp"
+    android:layout_width="10dp"
+    android:title="Acciones">
+
+    <item android:id="@+id/MnuPostularse"
+        android:title="@string/menu_tvPostularse">
+    </item>
+
+    <item android:id="@+id/MnuCompartir"
+        android:title="@string/menu_tvCompartirOferta">
+    </item>
+</menu>
+
+

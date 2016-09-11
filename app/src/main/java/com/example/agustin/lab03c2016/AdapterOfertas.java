@@ -4,12 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,40 +37,32 @@ public class AdapterOfertas extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return items.size();
     }
 
     @Override
     public Object getItem(int position)
     {
-
         return items.get(position);
     }
 
     @Override
     public long getItemId(int position)
     {
-        Object algo = this.getItem(position);
-
         return 0;
     }
 
     public View getView(int position, View convertView, ViewGroup parent)
     {
-
-
+        // ConvertView representa cada una de las filas del listview, asi que le asigno un oncliklistener y un inflator a cada una
         row = convertView;
         if(row == null)
         {
             row = inflater.inflate(R.layout.row_trabajos,parent,false);
+
         }
         cargarVariables();
         llenarAdapter(position);
-       // ((TextView)row.findViewById(R.id.tvRolTrabajo)).setText( "DIGO ALGOOOO");
-
-        /**
-         * ACA HACER LOGICA PARA BANDERITA Y ETC
-         */
         return(row);
     }
 
@@ -95,6 +87,7 @@ public class AdapterOfertas extends BaseAdapter {
     private void llenarAdapter(int position) {
         decimalFormat = new DecimalFormat("#.##");
         dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        int monedaPago = ((Trabajo) this.getItem(position)).getMonedaPago();
         Double precioMaximoHora = ( ((Trabajo) this.getItem(position)).getPrecioMaximoHora());
         Date fechaEntrega = ((Trabajo) this.getItem(position)).getFechaEntrega();
 
@@ -104,6 +97,50 @@ public class AdapterOfertas extends BaseAdapter {
         ingresoPorHora.setText(" "+decimalFormat.format(precioMaximoHora));
         fecha.setText(" "+dateFormat.format(fechaEntrega));
         cbRequiereIngles.setChecked(((Trabajo) this.getItem(position)).getRequiereIngles() );
+        setearBanderas(monedaPago);
+
+
     }
 
+    /**
+     * Dado el tipo de moneda del trabajo, se setean las banderas del trabajo
+     * @param tipoMoneda
+     */
+    private void setearBanderas(int tipoMoneda)
+    {
+        /** Logica de agregado de banderitas */
+        switch(tipoMoneda)
+        {
+            case 1:
+            {
+                banderaPais.setImageResource(R.drawable.banderaus);
+                break;
+            }
+            case 2:
+            {
+                banderaPais.setImageResource(R.drawable.banderaeu);
+                break;
+            }
+            case 3:
+            {
+                banderaPais.setImageResource(R.drawable.banderaargentina);
+                break;
+            }
+            case 4:
+            {
+                banderaPais.setImageResource(R.drawable.banderauk);
+                break;
+            }
+            case 5:
+            {
+                banderaPais.setImageResource(R.drawable.banderabrazil);
+                break;
+            }
+            default:
+            {
+                banderaPais.setImageResource(R.drawable.banderaargentina);
+                break;
+            }
+        }
+    }
 }
