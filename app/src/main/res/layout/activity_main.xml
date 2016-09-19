@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,22 +8,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.agustin.lab03c2016.MainActivity">
-    <!--
-    <android.support.design.widget.AppBarLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:theme="@style/AppTheme.AppBayOverlay">
-    </android.support.design.widget.AppBarLayout>
-    -->
-    <ListView
+    tools:context="com.example.agustin.lab03c2016.MainActivity"
+    android:orientation="vertical"
+    android:background="?attr/colorButtonNormal">
+
+    <include android:id="@+id/toolbar"
+        layout="@menu/menu_toolbar" />
+
+
+<ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lvOfertas"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:divider="@color/AmarrilloGlobo"
-        android:dividerHeight="4px"/>
+        android:dividerHeight="4dp"/>
+    <!--
+android:layout_alignParentTop="true"
+android:layout_alignParentStart="true"
+-->
 
-</RelativeLayout>
+
+</LinearLayout>
 

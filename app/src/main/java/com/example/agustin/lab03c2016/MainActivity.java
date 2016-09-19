@@ -2,6 +2,7 @@ package com.example.agustin.lab03c2016;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private AdapterOfertas adapterLvOfertas;
     private Trabajo[] trabajos;
     private MenuInflater menuInflater;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         /** Menu Contextual **/
         registerForContextMenu(ofertas);
+        /** Action bar **/
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     /**
