@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if(resultCode != 0) { //Si no hubo errores:
                     Trabajo res = (Trabajo)data.getSerializableExtra("agregado");
                     //TODO agregar trabajo nuevo a la list view
-                    //Log.e("tag", res.getDescripcion()); <-- anda bien [BORRAR ESTE COMENTARIO]
                 }
                 break;
             }
