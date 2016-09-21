@@ -1,5 +1,6 @@
 package com.example.agustin.lab03c2016;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -52,12 +53,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         switch(item.getItemId()){
             case R.id.action_ppal: break;
             case R.id.action_add: {
-                //TODO enviar a pantalla "Agregar trabajo"
+                Intent intent = new Intent(this, ActivityOferta.class);
+                startActivityForResult(intent,1);
                 break;
             }
             default: break;
         }
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 1: {
+                if(resultCode != 0) { //Si no hubo errores:
+                    Trabajo res = (Trabajo)data.getSerializableExtra("agregado");
+                    //TODO agregar trabajo nuevo a la list view
+                    //Log.e("tag", res.getDescripcion()); <-- anda bien [BORRAR ESTE COMENTARIO]
+                }
+                break;
+            }
+            default: break;
+        }
     }
 
     /**

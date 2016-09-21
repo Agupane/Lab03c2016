@@ -113,32 +113,32 @@ public class AdapterOfertas extends BaseAdapter {
         {
             case 1:
             {
-                banderaPais.setImageResource(R.drawable.banderaus);
+                //banderaPais.setImageResource(R.drawable.banderaus);
                 break;
             }
             case 2:
             {
-                banderaPais.setImageResource(R.drawable.banderaeu);
+                //banderaPais.setImageResource(R.drawable.banderaeu);
                 break;
             }
             case 3:
             {
-                banderaPais.setImageResource(R.drawable.banderaargentina);
+                //banderaPais.setImageResource(R.drawable.banderaargentina);
                 break;
             }
             case 4:
             {
-                banderaPais.setImageResource(R.drawable.banderauk);
+                //banderaPais.setImageResource(R.drawable.banderauk);
                 break;
             }
             case 5:
             {
-                banderaPais.setImageResource(R.drawable.banderabrazil);
+                //banderaPais.setImageResource(R.drawable.banderabrazil);
                 break;
             }
             default:
             {
-                banderaPais.setImageResource(R.drawable.banderaargentina);
+                //banderaPais.setImageResource(R.drawable.banderaargentina);
                 break;
             }
         }
