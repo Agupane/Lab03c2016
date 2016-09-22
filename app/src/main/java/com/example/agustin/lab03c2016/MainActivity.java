@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Toast.makeText(getApplicationContext(), "Se produjo un error al agregar el trabajo", Toast.LENGTH_LONG).show();
             }
 
-            ofertas.setAdapter(adapterLvOfertas);
+          //  ofertas.setAdapter(adapterLvOfertas);
         }
         // Reset the boolean flag back to false for next time.
     }

@@ -104,9 +104,11 @@ public class AdapterOfertas extends BaseAdapter {
 
     }
 
-    public boolean agregarTrabajo(Trabajo nuevoTrabajo,Context context)
+    public void agregarTrabajo(Trabajo nuevoTrabajo,Context context)
     {
-        return listaTrabajos.add(nuevoTrabajo);
+        listaTrabajos.add(nuevoTrabajo);
+        notifyDataSetChanged();
+
     }
 
     /**
