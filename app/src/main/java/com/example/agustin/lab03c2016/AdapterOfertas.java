@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +32,8 @@ public class AdapterOfertas extends BaseAdapter {
     {
        //super(context, R.layout.row_trabajos,listaTrabajos);
         super();
-        this.listaTrabajos = listaTrabajos;
+        this.listaTrabajos = new ArrayList<Trabajo>();
+        this.listaTrabajos.addAll(listaTrabajos);
         inflater = LayoutInflater.from(context);
     }
 
@@ -100,11 +103,10 @@ public class AdapterOfertas extends BaseAdapter {
 
 
     }
-    public boolean agregarTrabajo(Trabajo nuevoTrabajo)
+
+    public boolean agregarTrabajo(Trabajo nuevoTrabajo,Context context)
     {
-        boolean asd=listaTrabajos.add(nuevoTrabajo);
-        System.out.println("Boleano: "+asd);
-        return asd;
+        return listaTrabajos.add(nuevoTrabajo);
     }
 
     /**

@@ -15,7 +15,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener{
     private ListView ofertas;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Toolbar toolbar;
     private Trabajo nuevoTrabajo;
     private boolean volvioConResultado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -112,9 +115,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (volvioConResultado)
         {
             volvioConResultado = false;
-            System.out.println("Resultado");
-            if(nuevoTrabajo == null ){System.out.println("Trabajo nulo");}
-           // adapterLvOfertas.agregarTrabajo(nuevoTrabajo);
+            try
+            {
+                adapterLvOfertas.agregarTrabajo(nuevoTrabajo,this);
+                Toast.makeText(getApplicationContext(), "Tu postulacion se registro correctamente", Toast.LENGTH_LONG).show();
+            }
+            catch(Exception e)
+            {
+                Toast.makeText(getApplicationContext(), "Se produjo un error al agregar el trabajo", Toast.LENGTH_LONG).show();
+            }
+
+            ofertas.setAdapter(adapterLvOfertas);
         }
         // Reset the boolean flag back to false for next time.
     }
@@ -202,5 +213,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     {
 
     }
+
 
 }
