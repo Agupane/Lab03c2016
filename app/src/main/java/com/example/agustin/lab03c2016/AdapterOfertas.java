@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -23,27 +22,27 @@ public class AdapterOfertas extends BaseAdapter {
     private TextView nombreProyecto,nombreTrabajo,cantHoras,ingresoPorHora,fecha;
     private ImageView banderaPais;
     private View row;
-    private List<Trabajo> items;
+    private List<Trabajo> listaTrabajos;
     private CheckBox cbRequiereIngles;
     private DecimalFormat decimalFormat;
     private SimpleDateFormat dateFormat;
-    public AdapterOfertas(Context context, List<Trabajo> items)
+    public AdapterOfertas(Context context, List<Trabajo> listaTrabajos)
     {
-       //super(context, R.layout.row_trabajos,items);
+       //super(context, R.layout.row_trabajos,listaTrabajos);
         super();
-        this.items = items;
+        this.listaTrabajos = listaTrabajos;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return items.size();
+        return listaTrabajos.size();
     }
 
     @Override
     public Object getItem(int position)
     {
-        return items.get(position);
+        return listaTrabajos.get(position);
     }
 
     @Override
@@ -100,6 +99,12 @@ public class AdapterOfertas extends BaseAdapter {
         setearBanderas(monedaPago);
 
 
+    }
+    public boolean agregarTrabajo(Trabajo nuevoTrabajo)
+    {
+        boolean asd=listaTrabajos.add(nuevoTrabajo);
+        System.out.println("Boleano: "+asd);
+        return asd;
     }
 
     /**

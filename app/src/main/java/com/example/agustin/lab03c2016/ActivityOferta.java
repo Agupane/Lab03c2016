@@ -2,37 +2,38 @@ package com.example.agustin.lab03c2016;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class ActivityOferta extends AppCompatActivity {
-
+public class ActivityOferta extends AppCompatActivity implements View.OnClickListener{
+    private Button botonGuardar;
+    private Toolbar toolbar;
+    private Trabajo trabajoNuevo;
+    private EditText etNuevoTrabajo;
+    private Intent iTrabajoAgregado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_oferta);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button fab = (Button) findViewById(R.id.buttonGuardar);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText tv = (EditText) findViewById(R.id.etNombreOferta);
-                Trabajo trab = new Trabajo();
-                trab.setDescripcion(tv.getText().toString());
-                Intent i = getIntent();
-                i.putExtra("agregado", trab);
-                setResult(RESULT_OK, i);
-                finish();
-            }
-        });
+        botonGuardar = (Button) findViewById(R.id.buttonGuardar);
+        botonGuardar.setOnClickListener(this);
+
+    }
+    @Override
+    public void onClick(View view) {
+        etNuevoTrabajo = (EditText) findViewById(R.id.etNombreOferta);
+        trabajoNuevo = new Trabajo();
+        trabajoNuevo.setDescripcion(etNuevoTrabajo.getText().toString());
+        iTrabajoAgregado = getIntent();
+        iTrabajoAgregado.putExtra("trabajoNuevo", trabajoNuevo);
+        setResult(RESULT_OK, iTrabajoAgregado);
+        finish();
     }
 
 }

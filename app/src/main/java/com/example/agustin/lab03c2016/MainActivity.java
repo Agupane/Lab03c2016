@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Trabajo[] trabajos;
     private MenuInflater menuInflater;
     private Toolbar toolbar;
+    private Trabajo nuevoTrabajo;
+    private boolean volvioConResultado;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -62,18 +64,59 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+    /**
+     * Obtiene el resultado del intent de agregar trabajo
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case 1: {
-                if(resultCode != 0) { //Si no hubo errores:
-                    Trabajo res = (Trabajo)data.getSerializableExtra("agregado");
-                    //TODO agregar trabajo nuevo a la list view
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(resultCode)
+        {
+            case RESULT_OK: // No hubo errores
+            {
+                switch (requestCode)
+                {
+                    case 1:
+                    {
+                        nuevoTrabajo =(Trabajo) data.getExtras().get("trabajoNuevo");
+                        volvioConResultado=true;
+                     //   nuevoTrabajo = (Trabajo) data.getSerializableExtra("agregado");
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
                 }
                 break;
             }
-            default: break;
+            default:
+            {
+                System.out.println("SE PRODUJO UN ERROR");
+                break;
+            }
         }
+    }
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        super.onPause();
+    }
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        if (volvioConResultado)
+        {
+            volvioConResultado = false;
+            System.out.println("Resultado");
+            if(nuevoTrabajo == null ){System.out.println("Trabajo nulo");}
+           // adapterLvOfertas.agregarTrabajo(nuevoTrabajo);
+        }
+        // Reset the boolean flag back to false for next time.
     }
 
     /**
@@ -130,6 +173,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 return super.onOptionsItemSelected(item);
             }
         }
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outstate)
+    {
+        super.onSaveInstanceState(outstate);
+        //outstate.putlist
+    }
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
 
